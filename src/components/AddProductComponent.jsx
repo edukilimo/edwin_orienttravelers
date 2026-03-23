@@ -2,11 +2,11 @@ import { useState } from "react";
 import NavbarComponent from "./NavbarComponent"
 import axios from "axios";
 const AddProductComponent = () => {
-    let[product_name, setProductName] = useState ("");
-    let [product_description, setProductDescription] = useState ("");
-    let [product_cost, setProductCost] = useState ("");
-    let [product_category, setProductCategory] = useState ("");
-    let [product_image, setProductImage] = useState ("");
+    let [product_name, setProductName] = useState("");
+    let [product_description, setProductDescription] = useState("");
+    let [product_cost, setProductCost] = useState("");
+    let [product_category, setProductCategory] = useState("");
+    let [product_image, setProductImage] = useState("");
 
     let [loading, setLoading] = useState("");
     let [error, setError] = useState("");
@@ -30,7 +30,7 @@ const AddProductComponent = () => {
             console.log(response);
 
             if (response.status === 200) {
-                setLoading ("");
+                setLoading("");
                 setSuccess(response.data.message);
 
                 // clear form
@@ -41,12 +41,12 @@ const AddProductComponent = () => {
                 setProductImage("");
             }
 
-            
+
         } catch (error) {
             setSuccess("");
             setLoading("");
             setError(error.message);
-            
+
         }
 
     }
@@ -55,7 +55,7 @@ const AddProductComponent = () => {
 
     return (
         <div className="row justify-content-center my-3">
-            <NavbarComponent/>
+
             <div className="col-md-6 card shadow p-4">
                 <h2>Add a Package</h2>
                 <h5 className="text-warning">{loading}</h5>
@@ -64,71 +64,72 @@ const AddProductComponent = () => {
 
                 <form onSubmit={handleSubmit}>
                     <input type="text"
-                     className="form-control" 
-                     required
-                     placeholder="Package Title... eg. 7-Day coastal Kenya Safari"
-                     value={product_name}
-                     onChange={(e)=>{setProductName(e.target.value)}}
-                    
-                     />
-                     <br />
-                     
+                        className="form-control"
+                        required
+                        placeholder="Package Title... eg. 7-Day coastal Kenya Safari"
+                        value={product_name}
+                        onChange={(e) => { setProductName(e.target.value) }}
 
-                     <input type="number"
+                    />
+                    <br />
+
+
+                    <input type="number"
                         className="form-control"
                         required
                         placeholder="Package Base Price"
                         value={product_cost}
-                        onChange={(e) => {setProductCost(e.target.value)}} 
-                        option/>
-                        <br />
+                        onChange={(e) => { setProductCost(e.target.value) }}
+                        option />
+                    <br />
 
-                        <select
-                         required
-                         onChange={(e) => {setProductCategory(e.target.value)}}
-                         className="form-select">
-                            <option value="">Travel Category</option>
-                            <option value="luxury">Luxury</option>
-                            <option value="adventure">Adventure</option>
-                            <option value="honeymoon">Honeymoon</option>
-                            {/* <option value="accessories">Accessories</option> */}
-                         </select>
-                         <br />
+                    <select
+                        required
+                        onChange={(e) => { setProductCategory(e.target.value) }}
+                        className="form-select">
+                        <option value="">Travel Category</option>
+                        <option value="luxury">Luxury</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="honeymoon">Honeymoon</option>
+                        {/* <option value="accessories">Accessories</option> */}
+                    </select>
+                    <br />
 
-                         <label htmlFor="" className="form-control"><u>Service of Interest</u></label>
-                        <br />
-                         <input type="checkbox" className="form-control" />Flights <br />
-                         <input type="checkbox" className="form-control" /> Accomodation <br />
-                         <input type="checkbox" className="form-control"/> Meals (All or Specified) <br />
-                         <input type="checkbox" className="form-control"/> Local Transport <br />
-                         <input type="checkbox" className="form-control"/> Park or Activity fee <br />
-                         <br />
-                        
-                         <textarea
-                         required
-                         value={product_description}
-                         onChange={(e) => {setProductDescription(e.target.value)}}
-                         rows="7"
-                          className="form-control"></textarea>
-                          <br />
+                    <label htmlFor="" className="form-control"><u>Service offfered</u></label>
+                    <br />
+                    <input type="checkbox" />Flights <br />
+                    <input type="checkbox" /> Accomodation <br />
+                    <input type="checkbox" /> Meals (All or Specified) <br />
+                    <input type="checkbox" /> Local Transport <br />
+                    <input type="checkbox" /> Park or Activity fee <br />
+                    <br />
 
-                          <label htmlFor="" className="form-label">
-                            Destination Image</label>
+                    <textarea
+                        required
+                        value={product_description}
+                        onChange={(e) => { setProductDescription(e.target.value) }}
+                        rows="7"
+                        className="form-control"></textarea>
+                    <br />
 
-                        <input type="file"
+                    <label htmlFor="" className="form-label">
+                        Destination Image</label>
+
+                    <input type="file"
                         accept="image/*"
-                        onChange={(e) => {setProductImage(e.target.files[0]);
+                        onChange={(e) => {
+                            setProductImage(e.target.files[0]);
                         }}
                         required
-                        className="form-control"/>
-                        <br />
+                        className="form-control" />
+                    <br />
 
-                        <button className="btn btn-success">Publish Itinerary</button>
+                    <button className="btn btn-success">Publish Itinerary</button>
 
                 </form>
             </div>
-            
-          
+
+
 
         </div>
     );
