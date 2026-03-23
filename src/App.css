@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #2c3e50;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card:hover {
+  background-color: #2e80d3;
+  border: 1px solid greenyellow;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.card {
+  background-color: #eb0f0f;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  --primary-color:pink;
+  --bg-color: red;
+  --header-text: green;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  font-family: Arial, san-serif;
+}
+
+.header-container {
+  background-color: var(--primary-color);
+  color: var(--header-text);
+  padding: 40px;
+  text-align: center;
+
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin-right: 15px;
+
+}
+
+nav a hover {
+  color: var(--primary-color);
+
+}
+
+.navbar {
+  background-color: #ecf0f1 !important;
+
+}
+
+.container-fluid {
+  background-color: #f8f9fa;
+}
+
+button {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: backgroundcolor 0.3s ease, transformation 0.2s ease;
+
+}
+
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.98);
+}
