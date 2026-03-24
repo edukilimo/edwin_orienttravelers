@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path='/signup' element={<SignUpComponent/>} />
         <Route path='/signin' element={<SignInComponent/>} />
-        <Route path='/getproduct' element={<GetProductComponent/>} />
+        <Route path='/' element={<GetProductComponent/>} />
         <Route path='/addproduct' element={<AddProductComponent/>} />
         <Route path='/makepayment' element={<MakeProductComponent/>} />
       </Routes>
