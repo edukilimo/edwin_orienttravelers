@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavbarComponent from "./NavbarComponent"
+// import NavbarComponent from "./NavbarComponent"
 import axios from "axios";
 const AddProductComponent = () => {
     let [product_name, setProductName] = useState("");
@@ -91,7 +91,7 @@ const AddProductComponent = () => {
                         <option value="luxury">Luxury</option>
                         <option value="adventure">Adventure</option>
                         <option value="honeymoon">Honeymoon</option>
-                        {/* <option value="accessories">Accessories</option> */}
+                        <option value="culture">Culture</option>
                     </select>
                     <br />
 

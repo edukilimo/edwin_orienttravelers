@@ -13,6 +13,7 @@ const GetProductComponent = () => {
     let [honeymoon, setHoneymoon] = useState([]);
     let[search_word, setSearchWord] = useState("");
     let [filtered_products, setFilteredProducts] = useState([]);
+    let [culture, setculture] = useState([]);
 
 
     let navigator = useNavigate();
@@ -60,6 +61,9 @@ const GetProductComponent = () => {
 
                 let honeymoon_cat = response.data.filter((product)=> product.product_category === "honeymoon")
                 setHoneymoon(honeymoon_cat);
+
+                let culture_cat = response.data.filter((product)=> product.product_category === "luxury")
+                setLuxury(culture_cat);
             }
             
         } catch (error) {
@@ -153,6 +157,24 @@ const GetProductComponent = () => {
               <h2 className="text-center text-white bg-dark my-2 p-4">Honeymoon</h2>
 
             {honeymoon.map((product)=>(
+            <div className="col-md-3 justify-content-center mb-4">
+                <div className="card shadow card-margin">
+                    <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
+
+                    <div className="card-body">
+                        <h5 className="mt-2">{product.product_name}</h5>
+                        <p className="text-muted">{product.product_description}</p>
+                        <b className="text-warning">{product.product_cost}</b>
+                        <br /> <br />
+                        <button className="btn btn-success" onClick={()=>{navigator("/makepayment", {state: {product}}); }}>Book now!!!</button>
+                    </div>
+                </div>
+            </div>
+            ))}
+
+             <h2 className="text-center text-white bg-dark my-2 p-4">Culture</h2>
+
+             {culture.map((product)=>(
             <div className="col-md-3 justify-content-center mb-4">
                 <div className="card shadow card-margin">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
