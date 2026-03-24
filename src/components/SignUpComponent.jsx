@@ -52,7 +52,7 @@ const SignUpComponent = () => {
 
     return (
         <div className="row justify-content-center mt-4">
-            <NavbarComponent/>
+            
             
             <div className="col-md-6 card shadow p-4">
                 <h2>Create Account</h2>

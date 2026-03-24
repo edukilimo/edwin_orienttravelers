@@ -44,7 +44,7 @@ const GetProductComponent = () => {
 
     return (
         <div>
-            <NavbarComponent/>
+            
            <div className="row">
             <h3 className="mt-5">Available Product</h3>
             <h6 className="text-warning">{loading}</h6>
