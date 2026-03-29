@@ -1,18 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 
 
-const NavbarComponent = () => {
-    let user = JSON.parse(localStorage.getItem("user"))
 
-    let navigator = useNavigate ()
+const NavbarComponent = ({logo}) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    let navigator = useNavigate ();
 
     const logout = () => {
         localStorage.clear();
         navigator("/signin");
     };
+
+    
     return (
-        <nav className="navbar navbar-expand-lg">
-            <Link className="navbar-brand" to="/">Orient Travellers</Link>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+            <Link className="navbar-brand" to="/"><img src={logo} alt="Logo" style={{width: '100px', height: 'auto', marginRight: '50px', filter: 'drop-shadow(0px 0px 5px rgba(255,255,255,0.5))'}} /> 
+            Orient Travellers
+            </Link>
+            
             <button className="navbar-toggler" data-bs-collapse="collapse" data-bs-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -41,5 +47,6 @@ const NavbarComponent = () => {
         </nav>
 
     );
+    
 }
 export default NavbarComponent;

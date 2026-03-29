@@ -35,12 +35,23 @@ const GetProductComponent = () => {
             if (response.status ===200) {
                 setLoading("");
                 setProducts(response.data);
-            
-            <h2 className="text-center text-white bg-dark my-2 p-4">Luxury</h2>
 
-            {luxury.map((product)=>(
-            <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                // setLuxury(response.data.filter((product)=> product.product_category ==="luxury"));
+                // setAdventure(response.data.filter((product) => product.product_category==="adventure"));
+                // setHoneymoon(response.data.filter((product) => product.product_category==="Honeymoon"));
+                // setculture(response.data.filter((product) => product.product_category === "culture"));
+
+               
+
+            
+            <h2 className="text-center text-white bg-dark my-2 ">Luxury</h2>
+
+            {luxury.filter((product)=> product.product_name.toLowerCase().includes(search_word.toLowerCase())
+            )
+            .map((product)=> (
+            
+            <div key={product.id} className="col-md-3 justify-content-center mb-4">
+                <div className="card shadow card-margin travel-card">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -64,7 +75,9 @@ const GetProductComponent = () => {
 
                 let culture_cat = response.data.filter((product)=> product.product_category === "luxury")
                 setLuxury(culture_cat);
-            }
+
+             
+             }
             
         } catch (error) {
             setLoading("");
@@ -87,23 +100,36 @@ const GetProductComponent = () => {
 
 
     return (
-        <div>
+        <div /* style={{backgroundColor: '#e9e', minHeight: '100vh', width: '100%', margin:'0', padding: '20px'}}*/>
             
-           <div className="row">
-            <h3 className="mt-5">Available Product</h3>
+           <div className="container-fluid row" style={{backgroundColor: 'transparent'}}>
+            <h3 className="text-center text-white mb-5 my-4">Available Product</h3>
             <h6 className="text-warning">{loading}</h6>
             <h6 className="text-danger">{error}</h6>
 
-            <input type="text" placeholder="Search by name" 
-            className="form-control"
+            <div className="row justify-content-center">
+                <div className="col-md-8 col-lg-6">
+                    <div className="input-group mb-4 shadow-sm">
+
+                        <input type="text" placeholder="Where would you like to escape to today?" 
+            className="form-control py-3"
             value={search_word}
             onChange={(e)=> {
                 setSearchWord(e.target.value);
             }}/>
 
+            <button className="btn btn-warning fw-bold" type="button">Search</button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+
                    {filtered_products.map((product)=>(
                 <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                <div className="card shadow card-margin travel-card">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -118,11 +144,14 @@ const GetProductComponent = () => {
             ))}
 
 
-            <h2 className="text-center text-white bg-dark my-2 p-4">Luxury</h2>
+            
+
+            <h2 className="text-center text-white bg-dark my-2 ">Luxury</h2>
 
             {luxury.map((product)=>(
+
             <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                <div className="card shadow  travel-card card-margin">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -135,12 +164,15 @@ const GetProductComponent = () => {
                 </div>
             </div>
             ))}
+        
 
-              <h2 className="text-center text-white bg-dark my-2 p-4">Adventure</h2>
+        
+
+              <h2 className="text-center text-white bg-dark my-2 ">Adventure</h2>
 
             {adventure.map((product)=>(
             <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                <div className="card shadow card-margin travel-card ">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -154,11 +186,17 @@ const GetProductComponent = () => {
             </div>
             ))}
 
-              <h2 className="text-center text-white bg-dark my-2 p-4">Honeymoon</h2>
+    
+
+
+
+        
+
+              <h2 className="text-center text-white bg-dark my-2 ">Honeymoon</h2>
 
             {honeymoon.map((product)=>(
             <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                <div className="card shadow card-margin travel-card ">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -171,12 +209,16 @@ const GetProductComponent = () => {
                 </div>
             </div>
             ))}
+        
 
-             <h2 className="text-center text-white bg-dark my-2 p-4">Culture</h2>
+
+
+         
+             <h2 className="text-center text-white bg-dark my-2 ">Culture</h2>
 
              {culture.map((product)=>(
             <div className="col-md-3 justify-content-center mb-4">
-                <div className="card shadow card-margin">
+                <div className="card shadow card-margin travel-card ">
                     <img src={img_url+product.product_image} alt="" className="product_img mt-4" />
 
                     <div className="card-body">
@@ -189,8 +231,10 @@ const GetProductComponent = () => {
                 </div>
             </div>
             ))}
-           </div>
         </div>
+
+           </div>
+        
     );
 }
 

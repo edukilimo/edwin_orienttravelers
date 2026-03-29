@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: transparent !important;
 }
 
 .App-logo {
@@ -14,8 +15,9 @@
 }
 
 .App-header {
-  background-color: #2c3e50;
-  min-height: 20vh;
+  background-color: transparent !important;
+  min-height: auto !important;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,31 +39,45 @@
   }
 }
 
-.card:hover {
-  background-color: #2e80d3;
-  border: 1px solid greenyellow;
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
+.travel-card:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  /* border: 1px solid greenyellow; */
+  transform: translateY(-10px);
+  box-shadow: 0 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* transition: all 0.3s ease; */
 }
 
-.card {
-  background-color: #eb0f0f;
-  border-radius: 8px;
+.travel-card {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 20px !important;
+  /* overflow: hidden; */
+  /* display: flex; */
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white !important;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px;
+   
+}
+
+.travel-card p, .travel-card span {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 :root {
-  --primary-color:pink;
-  --bg-color: red;
-  --header-text: green;
-  --card-bg: #ffffff;
-  --text-main: #333333;
+  --primary-color:#00d2ff;
+  --bg-color: #0f2027;
+  --header-text: #ffffff;
+  --card-bg: rgba(15, 32, 39, 0.8);
+  --text-main: #ffffff;
 }
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-main);
+  color: white !important;
   margin: 0;
   font-family: Arial, san-serif;
 }
@@ -92,7 +108,7 @@ nav a hover {
 }
 
 .container-fluid {
-  background-color: #f8f9fa;
+  background-color: transparent !important;
 }
 
 button {
@@ -114,4 +130,189 @@ button:hover {
 
 button:active {
   transform: scale(0.98);
+} 
+
+html, body, #root {
+  background: linear-gradient(to bottom 135deg, #082032 , skyblue, lightblue )!important;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  /* min-height: 100vh; */
+  color: white;
+  width: 100%;
 }
+
+.container, .container-fluid, .row, .main-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity:0.05;
+  z-index: -1;
+}
+
+.btn-success {
+  background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+  color: white !important;
+  font-weight: bold;
+}
+
+.bg-dark {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(5px); /*adds a premeum feel*/
+  border-radius: 8px;
+  padding: 15px !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px;
+}
+
+/* Glassmorohism effect */
+
+.form-control {
+  background: rgba(255, 255, 255, 0.1) !important; /*semi transparent white*/
+  backdrop-filter: blur;  /*This create the frosted glass effect*/
+  border: 1px solid rgba(255, 255, 255, 0.2) !important; 
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+/* Change the colour of the placeholder in the search button */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Style the search button */
+.btn-warning {
+  background: linear-gradient(45deg, #ff8c00, #ff4b2b) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 25px !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+  transition: 0.3s;
+}
+
+.btn-warning:hover {
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+
+/* Polish text
+change text color and remove margin */
+.container, .container-fluid, .row {
+  background-color: transparent !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.App, #root, .container,.container-fluid, .row {
+  background-color: transparent !important;
+  /* min-height: 100vh; */
+}
+
+html, body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+}
+
+div {
+  background-color: transparent !important;
+}
+
+.travel-card img {
+  border-radius: 10px 10px 0 0;
+  height: 220px;
+  transition: transform 0.6s ease;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+h1, h2, h3, h4, h5, h6, p, label span, .card-text, .card-title {
+  color: white !important;
+}
+
+.category-header {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: right;
+  text-transform: capitalize;
+  margin: 40px 0 20px 0;
+  padding-right: 50px;
+  /* margin-top: 20px; */
+}
+
+.price-text {
+  color: #ff8c00 !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.mt-5 {
+  margin-top: 1rem;
+}
+
+body, #root, .App {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0a3d62 0%, #1e5f9e 35%, #2a7bc2 65%, #3a9ad9 100%) fixed ;
+  background-image: linear-gradient(to bottom, #0a3d62 0%, #1e5f9e 35%, #2a7bc2 65%, #3a9ad9 100% ), radial-gradient(circle at 40% 15%, rgba(255, 255, 255, 0.25)0%, rgba(255, 255, 255, 0.08) 30%, transparent 70%);
+  background-size: cover;
+  background-attachment: fixed;
+  columns: #ffffff;
+}
+
+.Link {
+  background: pink;
+  color: white;
+}
+
+.available-products-page {
+  background: linear-gradient( to bottom, #0a3d62, #1e5f9e, #2a7bc2, #3a9ad9) ;
+  background-attachment: fixed;
+}
+
+.category-title {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 10 px 15px -3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.luxury {
+  background: linear-gradient(to right, #f97316, #ec4899, #a855f7);
+}
+
+.adventure {
+  background: linear-gradient(to right, #10b981, #22d3ee, #3b82f6);
+}
+
+.honeymoon {
+  background: linear-gradient(to right, #d97706, #f59e0b, #ef4444);
+}
+
+.culture {
+  background: to right, #0ea5e9 #22d3ee, #67e8f9;
+}
+

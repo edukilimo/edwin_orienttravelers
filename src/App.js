@@ -10,6 +10,7 @@ import MakeProductComponent from './components/MakePaymentComponent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js"
 import NavbarComponent from './components/NavbarComponent';
+import logo from './mylogo.jpeg';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <BrowserRouter>
     <div className="container-fluid">
       <div className="App">
-      <NavbarComponent/>
+      <NavbarComponent logo={logo}/>
       <header className="App-header">
         <h1>Orient Travel || Stress Free </h1>
         
