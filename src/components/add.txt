@@ -1,51 +1,30 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+// import NavbarComponent from "./NavbarComponent"
 import axios from "axios";
-
 const AddProductComponent = () => {
     let [product_name, setProductName] = useState("");
     let [product_description, setProductDescription] = useState("");
     let [product_cost, setProductCost] = useState("");
     let [product_category, setProductCategory] = useState("");
     let [product_image, setProductImage] = useState("");
+
     let [loading, setLoading] = useState("");
     let [error, setError] = useState("");
     let [success, setSuccess] = useState("");
-    let [flight_covered, setFlightCovered] = useState(false);
-    let [accommodation_covered, setAccommodationCovered] = useState(false);
-    let [meals_covered, setMealsCovered] = useState(false);
-    let [transport_covered, setTransportCovered] = useState(false);
-    let [activities_covered, setActivitiesCovered] = useState(false);
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (!user) {
-            localStorage.setItem("redirectAfterLogin", "/addproduct");
-            localStorage.setItem("showLoginToast", "true");
-            navigate("/signin");
-        }
-    }, []);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
-        setSuccess("");
-        setLoading("Please wait...");
+        e.preventDefault()
+        setError("")
+        setSuccess("")
+        setLoading("Please wait...")
 
         try {
-            const product_data = new FormData();
+            const product_data = new FormData()
             product_data.append("product_name", product_name);
             product_data.append("product_cost", product_cost);
             product_data.append("product_category", product_category);
             product_data.append("product_description", product_description);
             product_data.append("product_image", product_image);
-            product_data.append("flight_covered", flight_covered);
-            product_data.append("accommodation_covered", accommodation_covered);
-            product_data.append("meals_covered", meals_covered);
-            product_data.append("transport_covered", transport_covered);
-            product_data.append("activities_covered", activities_covered);
 
             const response = await axios.post("https://edwink.alwaysdata.net/api/add_product", product_data);
             console.log(response);
@@ -53,27 +32,30 @@ const AddProductComponent = () => {
             if (response.status === 200) {
                 setLoading("");
                 setSuccess(response.data.message);
+
+                // clear form
                 setProductName("");
                 setProductCategory("");
                 setProductCost("");
                 setProductDescription("");
                 setProductImage("");
-                setFlightCovered(false);
-                setAccommodationCovered(false);
-                setMealsCovered(false);
-                setTransportCovered(false);
-                setActivitiesCovered(false);
             }
+
 
         } catch (error) {
             setSuccess("");
             setLoading("");
             setError(error.message);
+
         }
-    };
+
+    }
+
+
 
     return (
         <div className="row justify-content-center my-3">
+
             <div className="col-md-6 card shadow p-4">
                 <h2>Add a Package</h2>
                 <h5 className="text-warning">{loading}</h5>
@@ -87,8 +69,10 @@ const AddProductComponent = () => {
                         placeholder="Package Title... eg. 7-Day coastal Kenya Safari"
                         value={product_name}
                         onChange={(e) => { setProductName(e.target.value) }}
+
                     />
                     <br />
+
 
                     <input type="number"
                         className="form-control"
@@ -96,7 +80,7 @@ const AddProductComponent = () => {
                         placeholder="Package Base Price"
                         value={product_cost}
                         onChange={(e) => { setProductCost(e.target.value) }}
-                    />
+                        option />
                     <br />
 
                     <select
@@ -111,13 +95,13 @@ const AddProductComponent = () => {
                     </select>
                     <br />
 
-                    <label className="form-control"><u>Service Offered</u></label>
+                    <label htmlFor="" className="form-control"><u>Service offfered</u></label>
                     <br />
-                    <input type="checkbox" checked={flight_covered} onChange={(e) => setFlightCovered(e.target.checked)} /> Flights <br />
-                    <input type="checkbox" checked={accommodation_covered} onChange={(e) => setAccommodationCovered(e.target.checked)} /> Accommodation <br />
-                    <input type="checkbox" checked={meals_covered} onChange={(e) => setMealsCovered(e.target.checked)} /> Meals (All or Specified) <br />
-                    <input type="checkbox" checked={transport_covered} onChange={(e) => setTransportCovered(e.target.checked)} /> Local Transport <br />
-                    <input type="checkbox" checked={activities_covered} onChange={(e) => setActivitiesCovered(e.target.checked)} /> Park or Activity Fee <br />
+                    <input type="checkbox" />Flights <br />
+                    <input type="checkbox" /> Accomodation <br />
+                    <input type="checkbox" /> Meals (All or Specified) <br />
+                    <input type="checkbox" /> Local Transport <br />
+                    <input type="checkbox" /> Park or Activity fee <br />
                     <br />
 
                     <textarea
@@ -125,22 +109,28 @@ const AddProductComponent = () => {
                         value={product_description}
                         onChange={(e) => { setProductDescription(e.target.value) }}
                         rows="7"
-                        className="form-control">
-                    </textarea>
+                        className="form-control"></textarea>
                     <br />
 
-                    <label className="form-label">Destination Image</label>
+                    <label htmlFor="" className="form-label">
+                        Destination Image</label>
+
                     <input type="file"
                         accept="image/*"
-                        onChange={(e) => { setProductImage(e.target.files[0]); }}
+                        onChange={(e) => {
+                            setProductImage(e.target.files[0]);
+                        }}
                         required
-                        className="form-control"
-                    />
+                        className="form-control" />
                     <br />
 
                     <button className="btn btn-success">Publish Itinerary</button>
+
                 </form>
             </div>
+
+
+
         </div>
     );
 }

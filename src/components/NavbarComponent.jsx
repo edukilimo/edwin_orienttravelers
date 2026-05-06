@@ -1,24 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 
-
-
 const NavbarComponent = ({logo}) => {
     let user = JSON.parse(localStorage.getItem("user"));
 
-    let navigator = useNavigate ();
+    let navigator = useNavigate();
 
     const logout = () => {
         localStorage.clear();
         navigator("/signin");
     };
 
-    
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
             <Link className="navbar-brand" to="/"><img src={logo} alt="Logo" style={{width: '100px', height: 'auto', marginRight: '50px', filter: 'drop-shadow(0px 0px 5px rgba(255,255,255,0.5))'}} /> 
             Orient Travellers
             </Link>
-            
+
             <button className="navbar-toggler" data-bs-collapse="collapse" data-bs-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -31,8 +28,8 @@ const NavbarComponent = ({logo}) => {
 
                 {user ?
                     <div className="navbar-nav ms-auto">
-                        <p className="nav-link"to="/signin">Sign In {user.Username}</p>
-                        <button className="nav-link" onclick={logout}>log out</button>
+                        <p className="nav-link mb-0">Welcome, {user.username}</p>
+                        <button className="btn btn-outline-danger btn-sm ms-2" onClick={logout}>Log Out</button>
                     </div>
 
                     :
@@ -41,12 +38,10 @@ const NavbarComponent = ({logo}) => {
                         <Link className="nav-link" to="/signin">Sign In</Link>
                         <Link className="nav-link" to="/signup">Sign Up</Link>
                     </div>
-
                 }
             </div>
         </nav>
-
     );
-    
 }
+
 export default NavbarComponent;

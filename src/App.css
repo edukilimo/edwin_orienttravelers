@@ -1,23 +1,22 @@
-.App {
-  text-align: center;
+/* ========================
+   RESET — make everything transparent
+   so the body background shows through
+======================== */
+div, .container, .container-fluid, .row,
+.App, #root {
   background: transparent !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ========================
+   APP HEADER — "Orient Travel || Stress Free"
+======================== */
+.App {
+  text-align: center;
 }
 
 .App-header {
-  background-color: transparent !important;
-  min-height: auto !important;
-  padding: 20px 0;
+  background: transparent;
+  padding: 30px 0 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,278 +25,70 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ========================
+   ALL TEXT WHITE
+======================== */
+h1, h2, h3, h4, h5, h6, p, label, span {
+  color: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ========================
+   NAVBAR
+======================== */
+.navbar {
+  background: rgba(5, 15, 30, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+}
+
+/* ========================
+   PRODUCT CARDS
+   Dark navy with cyan left border
+   — matching the image style
+======================== */
+.travel-card {
+  background: rgba(8, 25, 50, 0.75) !important;
+  border: 1px solid rgba(0, 200, 255, 0.2) !important;
+  border-left: 4px solid #00c8ff !important;
+  border-radius: 16px !important;
+  padding: 0 0 16px 0;
+  color: white !important;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .travel-card:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  /* border: 1px solid greenyellow; */
-  transform: translateY(-10px);
-  box-shadow: 0 0 10px 30px rgba(0, 0, 0, 0.5);
-  /* transition: all 0.3s ease; */
-}
-
-.travel-card {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  border-radius: 20px !important;
-  /* overflow: hidden; */
-  /* display: flex; */
-  padding: 20px;
-  color: white !important;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 20px;
-   
-}
-
-.travel-card p, .travel-card span {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-:root {
-  --primary-color:#00d2ff;
-  --bg-color: #0f2027;
-  --header-text: #ffffff;
-  --card-bg: rgba(15, 32, 39, 0.8);
-  --text-main: #ffffff;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: white !important;
-  margin: 0;
-  font-family: Arial, san-serif;
-}
-
-.header-container {
-  background-color: var(--primary-color);
-  color: var(--header-text);
-  padding: 40px;
-  text-align: center;
-
-}
-
-nav a {
-  color: var(--text-main);
-  text-decoration: none;
-  margin-right: 15px;
-
-}
-
-nav a hover {
-  color: var(--primary-color);
-
-}
-
-.navbar {
-  background-color: #ecf0f1 !important;
-
-}
-
-.container-fluid {
-  background-color: transparent !important;
-}
-
-button {
-  background-color: #2c3e50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: backgroundcolor 0.3s ease, transformation 0.2s ease;
-
-}
-
-button:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: scale(0.98);
-} 
-
-html, body, #root {
-  background: linear-gradient(to bottom 135deg, #082032 , skyblue, lightblue )!important;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
-  /* min-height: 100vh; */
-  color: white;
-  width: 100%;
-}
-
-.container, .container-fluid, .row, .main-content {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-  opacity:0.05;
-  z-index: -1;
-}
-
-.btn-success {
-  background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  padding: 10px 20px !important;
-  font-weight: bold !important;
-  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
-  color: white !important;
-  font-weight: bold;
-}
-
-.bg-dark {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(5px); /*adds a premeum feel*/
-  border-radius: 8px;
-  padding: 15px !important;
-  margin-top: 0 !important;
-  margin-bottom: 20px;
-}
-
-/* Glassmorohism effect */
-
-.form-control {
-  background: rgba(255, 255, 255, 0.1) !important; /*semi transparent white*/
-  backdrop-filter: blur;  /*This create the frosted glass effect*/
-  border: 1px solid rgba(255, 255, 255, 0.2) !important; 
-  color: white !important;
-  border-radius: 10px !important;
-}
-
-/* Change the colour of the placeholder in the search button */
-.form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-/* Style the search button */
-.btn-warning {
-  background: linear-gradient(45deg, #ff8c00, #ff4b2b) !important;
-  border: none !important;
-  color: white !important;
-  padding: 10px 25px !important;
-  border-radius: 10px !important;
-  font-weight: bold !important;
-  transition: 0.3s;
-}
-
-.btn-warning:hover {
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
-  transform: translateY(-2px);
-}
-
-
-/* Polish text
-change text color and remove margin */
-.container, .container-fluid, .row {
-  background-color: transparent !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-.App, #root, .container,.container-fluid, .row {
-  background-color: transparent !important;
-  /* min-height: 100vh; */
-}
-
-html, body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
-  background-attachment: fixed !important;
-  min-height: 100vh !important;
-}
-
-div {
-  background-color: transparent !important;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 200, 255, 0.2);
+  border-left: 4px solid #ff8c00 !important;
 }
 
 .travel-card img {
-  border-radius: 10px 10px 0 0;
-  height: 220px;
-  transition: transform 0.6s ease;
   width: 100%;
+  height: 200px;
   object-fit: cover;
+  border-radius: 12px 12px 0 0;
 }
 
-
-
-h1, h2, h3, h4, h5, h6, p, label span, .card-text, .card-title {
-  color: white !important;
+.travel-card .card-body {
+  padding: 16px;
 }
 
-.category-header {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  text-align: right;
-  text-transform: capitalize;
-  margin: 40px 0 20px 0;
-  padding-right: 50px;
-  /* margin-top: 20px; */
-}
-
-.price-text {
-  color: #ff8c00 !important;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.mt-5 {
-  margin-top: 1rem;
-}
-
-body, #root, .App {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #0a3d62 0%, #1e5f9e 35%, #2a7bc2 65%, #3a9ad9 100%) fixed ;
-  background-image: linear-gradient(to bottom, #0a3d62 0%, #1e5f9e 35%, #2a7bc2 65%, #3a9ad9 100% ), radial-gradient(circle at 40% 15%, rgba(255, 255, 255, 0.25)0%, rgba(255, 255, 255, 0.08) 30%, transparent 70%);
-  background-size: cover;
-  background-attachment: fixed;
-  columns: #ffffff;
-}
-
-.Link {
-  background: pink;
-  color: white;
-}
-
-.available-products-page {
-  background: linear-gradient( to bottom, #0a3d62, #1e5f9e, #2a7bc2, #3a9ad9) ;
-  background-attachment: fixed;
-}
-
+/* ========================
+   CATEGORY SECTION HEADERS
+   Pill shaped colored labels
+======================== */
 .category-title {
   display: inline-block;
-  padding: 12px 32px;
+  padding: 10px 30px;
   border-radius: 9999px;
-  font-size: 2.25rem;
-  font-weight: 600;
-  color: white;
-  box-shadow: 0 10 px 15px -3px rgba(0, 0, 0, 0.3);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white !important;
   margin-bottom: 1.5rem;
+  letter-spacing: 1px;
 }
 
 .luxury {
@@ -313,6 +104,121 @@ body, #root, .App {
 }
 
 .culture {
-  background: to right, #0ea5e9 #22d3ee, #67e8f9;
+  background: linear-gradient(to right, #0ea5e9, #22d3ee, #67e8f9);
 }
 
+/* ========================
+   CATEGORY DARK HEADER BAR
+   e.g the bg-dark sections
+======================== */
+.bg-dark {
+  background: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  padding: 15px !important;
+  margin-bottom: 20px;
+}
+
+/* ========================
+   PRICE TEXT
+======================== */
+.price-text {
+  color: #ff8c00 !important;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* ========================
+   BOOK NOW BUTTON
+======================== */
+.btn-success {
+  background: linear-gradient(to right, #ff416c, #ff4b2b) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-weight: bold !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
+}
+
+/* ========================
+   SEARCH BAR
+======================== */
+.form-control {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(0, 200, 255, 0.3) !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.2) !important;
+  border-color: #00c8ff !important;
+}
+
+/* ========================
+   SEARCH BUTTON
+======================== */
+.btn-warning {
+  background: linear-gradient(45deg, #ff8c00, #ff4b2b) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 25px !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+  transition: 0.3s;
+}
+
+.btn-warning:hover {
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ========================
+   SIGN IN / SIGN UP CARDS
+   and ADD PRODUCT FORM
+======================== */
+.card {
+  background: rgba(8, 25, 50, 0.8) !important;
+  border: 1px solid rgba(0, 200, 255, 0.2) !important;
+  border-radius: 16px !important;
+  color: white !important;
+}
+
+.form-select {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(0, 200, 255, 0.3) !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+.form-select option {
+  background: #0d2137 !important;
+  color: white !important;
+}
+
+/* ========================
+   DECORATIVE BACKGROUND ICONS
+   Adds travel themed watermark
+   icons like in your image
+======================== */
+body::after {
+  content: "✈";
+  position: fixed;
+  top: 8%;
+  right: 5%;
+  font-size: 120px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}

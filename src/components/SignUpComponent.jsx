@@ -36,7 +36,7 @@ const SignUpComponent = () => {
             user_data.append("phone", phone);
             user_data.append("password", password);
 
-            const response = await axios.post("https://duncanm.alwaysdata.net/api/signup", user_data)
+            const response = await axios.post("https://edwink.alwaysdata.net/api/signup", user_data)
             console.log(response);
             setSuccess(response.data.message);
             setLoading("");
