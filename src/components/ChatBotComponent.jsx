@@ -167,24 +167,48 @@ Only answer travel-related questions.`,
           </div>
         </div>
       )}
-
-      {/* FAB Button */}
-      <button style={styles.fab} onClick={() => setIsOpen(!isOpen)}>
-        <span style={styles.fabIcon}>💬</span>
-        <span style={styles.fabText}>AI Assistant</span>
-      </button>
+        {/* FAB Button */}
+        <button 
+          style={styles.fab} 
+          onClick={() => setIsOpen(!isOpen)}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        >
+          <span style={styles.fabIcon}>💬</span>
+          <span style={styles.fabText}>AI Assistant</span>
+        </button>
     </div>
   );
 };
 
+// At the top with other styles, update or replace:
 const styles = {
-  wrapper: { position: "fixed", bottom: "24px", right: "24px", zIndex: 9999, display: "flex", flexDirection: "column", alignItems: "flex-end" },
+  // ... keep all your other styles ...
+
+  wrapper: { 
+    position: "fixed", 
+    bottom: "24px", 
+    right: "24px", 
+    zIndex: 10000, 
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "flex-end" 
+  },
+
   fab: {
-    display: "flex", alignItems: "center", gap: "8px",
-    backgroundColor: "#f97316", border: "none", borderRadius: "28px",
-    padding: "12px 20px", cursor: "pointer",
-    boxShadow: "0 4px 16px rgba(249,115,22,0.5)",
-    color: "white", fontWeight: "bold", fontSize: "14px"
+    display: "flex", 
+    alignItems: "center", 
+    gap: "8px",
+    backgroundColor: "#f97316", 
+    border: "none", 
+    borderRadius: "28px",
+    padding: "12px 20px", 
+    cursor: "pointer",
+    boxShadow: "0 4px 20px rgba(249,115,22,0.6)",
+    color: "white", 
+    fontWeight: "bold", 
+    fontSize: "14px",
+    transition: "all 0.2s ease"
   },
   fabIcon: { fontSize: "20px" },
   fabText: { color: "white", fontWeight: "700", letterSpacing: "0.3px" },

@@ -17,7 +17,7 @@ const TermsComponent = () => {
 
   return (
     <div>
-      <NavbarComponent />
+      {/* <NavbarComponent /> */}
       <div style={styles.container}>
         <h2 style={styles.title}>📄 Terms & Conditions</h2>
         <p style={styles.subtitle}>Please read and accept before proceeding to payment.</p>

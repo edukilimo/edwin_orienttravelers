@@ -222,3 +222,7 @@ body::after {
   pointer-events: none;
   z-index: 0;
 }
+
+.App {
+  padding-bottom: 120px;   /* Extra space for floating buttons */
+}
